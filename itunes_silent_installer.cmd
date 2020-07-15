@@ -3,9 +3,8 @@ if exist itunes_silent rd /s /q itunes_silent
 md itunes_silent
 cd itunes_silent
 
-powershell.exe Start-BitsTransfer -Source "http://stahlworks.com/dev/unzip.exe" -Destination "unzip.exe"
 powershell.exe Start-BitsTransfer -Source "https://www.7-zip.org/a/7za920.zip" -Destination "7za920.zip"
-unzip.exe -o 7za920.zip 7za.exe
+powershell.exe Expand-Archive 7za920.zip .
 
 reg.exe query "HKLM\Hardware\Description\System\CentralProcessor\0" | find /i "x86" > nul && set os=32bit || set os=64bit
 
