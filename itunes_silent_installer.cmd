@@ -15,11 +15,11 @@ if %os%==64bit goto 64bits
 powershell.exe Start-BitsTransfer -Source "https://www.apple.com/itunes/download/win32" -Destination "itunes32.exe"
 7za.exe e itunes32.exe *.msi
 
-rem msiexec.exe /i AppleApplicationSupport.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i Bonjour.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i AppleMobileDeviceSupport.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i AppleSoftwareUpdate.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i iTunes.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleApplicationSupport.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i Bonjour.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleMobileDeviceSupport.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleSoftwareUpdate.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i iTunes.msi /qn REBOOT=ReallySuppress
 
 goto finish
 
@@ -28,12 +28,12 @@ goto finish
 powershell.exe Start-BitsTransfer -Source "https://www.apple.com/itunes/download/win64" -Destination "itunes64.exe"
 7za.exe e itunes64.exe *.msi
 
-rem msiexec.exe /i AppleApplicationSupport.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i AppleApplicationSupport64.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i Bonjour64.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i AppleMobileDeviceSupport64.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i AppleSoftwareUpdate.msi /qn REBOOT=ReallySuppress
-rem msiexec.exe /i iTunes64.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleApplicationSupport.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleApplicationSupport64.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i Bonjour64.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleMobileDeviceSupport64.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i AppleSoftwareUpdate.msi /qn REBOOT=ReallySuppress
+msiexec.exe /i iTunes64.msi /qn REBOOT=ReallySuppress
 
 :finish
 
