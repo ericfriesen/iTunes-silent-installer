@@ -12,8 +12,8 @@ Add-Type -assembly "system.io.compression.filesystem"
 [System.IntPtr]::Size
 if ((gwmi win32_operatingsystem | select osarchitecture).osarchitecture -eq "64-bit")
 {
-	$WebClient.DownloadFile("https://www.apple.com/itunes/download/win64","$TempDir\itunes_silent\itunes64.exe")
-	Start-Process -Wait -FilePath ".\7za.exe" -ArgumentList "e itunes64.exe *.msi" -NoNewWindow
+	$WebClient.DownloadFile("https://www.apple.com/itunes/download/win64","$TempDir\itunes_silent\itunes_setup.exe")
+	Start-Process -Wait -FilePath ".\7za.exe" -ArgumentList "e itunes_setup.exe *.msi" -NoNewWindow
 	$msiFiles = Get-ChildItem -Path "$Destination" -Recurse -Include *.msi
 	foreach ( $file in $msiFiles ) {
 		$fullPath = $file.FullName
@@ -22,8 +22,8 @@ if ((gwmi win32_operatingsystem | select osarchitecture).osarchitecture -eq "64-
 }
 else
 {
-	$WebClient.DownloadFile("https://www.apple.com/itunes/download/win32","$TempDir\itunes_silent\itunes32.exe")
-	Start-Process -Wait -FilePath ".\7za.exe" -ArgumentList "e itunes32.exe *.msi" -NoNewWindow
+	$WebClient.DownloadFile("https://www.apple.com/itunes/download/win32","$TempDir\itunes_silent\itunes_setup.exe")
+	Start-Process -Wait -FilePath ".\7za.exe" -ArgumentList "e itunes_setup.exe *.msi" -NoNewWindow
 	$msiFiles = Get-ChildItem -Path "$Destination" -Recurse -Include *.msi
 	foreach ( $file in $msiFiles ) {
 		$fullPath = $file.FullName
