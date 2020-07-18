@@ -4,12 +4,11 @@ cd $TempDir
 if ( Test-Path -Path 'itunes_silent' ) { Remove-Item itunes_silent -Recurse -Force }
 md itunes_silent
 cd itunes_silent
-$destinationFolder = "$TempDir\itunes_silent"
 $WebClient.DownloadFile("https://www.7-zip.org/a/7za920.zip","$TempDir\itunes_silent\7za920.zip")
 $7z = "$TempDir\itunes_silent\7za920.zip"
 $Destination = "$TempDir\itunes_silent"
 Add-Type -assembly "system.io.compression.filesystem"
-[io.compression.zipfile]::ExtractToDirectory($7z, $destination)
+[io.compression.zipfile]::ExtractToDirectory($7z, $Destination)
 [System.IntPtr]::Size
 if ((gwmi win32_operatingsystem | select osarchitecture).osarchitecture -eq "64-bit")
 {
