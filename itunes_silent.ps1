@@ -1,3 +1,4 @@
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion  | where DisplayName -EQ iTunes
 $TempDir = [System.IO.Path]::GetTempPath()
 $WebClient = New-Object System.Net.WebClient
 cd $TempDir
